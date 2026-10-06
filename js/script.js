@@ -4,12 +4,12 @@ const bgAudio = document.getElementById('bgAudio');
 const body = document.body;
 
 const openInviteBtn = document.getElementById('openInviteBtn');
-const envelopeWrap = document.getElementById('envelopeWrap');
+const notepadPage = document.getElementById('notepadPage');
 const celebrationLayer = document.getElementById('celebrationLayer');
 const contentSection = document.getElementById('contentSection');
 
-// Countdown target: 23 Nov 2026 at 09:00 AM
-const dateTarget = new Date('2026-11-23T09:00:00');
+// Countdown target: 24 Nov 2026 at 18:00 PM (Baraat time)
+const dateTarget = new Date('2026-11-24T18:00:00');
 const daysEl = document.getElementById('days');
 const hoursEl = document.getElementById('hours');
 const minutesEl = document.getElementById('minutes');
@@ -102,19 +102,22 @@ function createCelebration() {
 }
 
 function openInvite() {
-  // CSS handles the envelope opening animation
-  envelopeWrap.classList.add('open');
+  openInviteBtn.classList.add('hidden');
+  
+  // Trigger CSS transform rotateX to flip upwards
+  notepadPage.classList.add('open');
 
   if (bgAudio.paused) {
     tryAutoplay();
   }
 
+  // Wait for the flip animation to finish (0.9s defined in CSS)
   setTimeout(() => {
-    document.getElementById('envelopeStage').style.display = 'none'; 
+    document.getElementById('coverStage').style.display = 'none'; 
     createCelebration();
     contentSection.classList.remove('hidden'); 
     window.scrollTo({ top: 0, behavior: 'auto' });
-  }, 950);
+  }, 900);
 }
 
 openInviteBtn.addEventListener('click', openInvite);
