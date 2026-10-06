@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Carattere&family=Great+Vibes&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@400;500;600;700;800&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Protects your English styling without changing your CSS or JS files -->
+  <!-- Protects your English styling from being overwritten by script_2.js -->
   <style>
     body.hindi-mode { font-family: 'Montserrat', sans-serif !important; }
     .cover-top-text span.en-text {
@@ -33,7 +33,7 @@
 <body>
   <div class="page-shell">
     <header class="topbar">
-      <!-- Hidden language toggle so your script.js doesn't break -->
+      <!-- CRITICAL: Do NOT delete this langToggle button. It is hidden, but script.js needs it to prevent crashing! -->
       <button id="langToggle" class="icon-btn lang-btn" type="button" style="display: none;">EN</button>
       <button id="musicToggle" class="icon-btn music-btn" type="button" aria-label="Play music" aria-pressed="false">♫</button>
     </header>
@@ -54,7 +54,7 @@
           <img src="assets/images/cover.png" alt="Invitation Cover" class="cover-image" />
           
           <button class="open-invite-btn" id="openInviteBtn" type="button">
-            <span class="en-text">Open Invite</span>
+            <span class="en-text">Open Invitation</span>
           </button>
         </div>
       </section>
@@ -111,139 +111,3 @@
               </p>
             </div>
           </section>
-
-          <!-- Kalash & Shloka -->
-          <section class="shloka-section">
-            <img src="assets/images/kalash.png" alt="Kalash" class="kalash-center-img" />
-            <p class="shloka-text en-text">
-              Vighna Harana Mangala Karana, Gananayaka Ganaraja.<br>
-              Prathama Nimantrana Aapko, Safala Kijo Sab Kaaja..
-            </p>
-            <img src="assets/images/MK.png" alt="Mangalik Karyakram" class="mk-banner" />
-          </section>
-
-          <!-- Events -->
-          <section class="details-panel">
-            <div class="event-phase-header">
-              <h2 class="event-phase-title en-text">Engagement Ceremony</h2>
-            </div>
-            
-            <div class="event-grid single-col">
-              <div class="event-group">
-                <img src="assets/images/23november.png" alt="23 November 2026 Calendar" class="calendar-preview" />
-                <div class="event-box">
-                  <div class="detail-row">
-                    <span class="event-label en-text">📅 Date:</span>
-                    <strong class="event-value en-text">Monday, 23 Nov 2026</strong>
-                  </div>
-                  <div class="detail-row">
-                    <span class="event-label en-text">⏰ Events:</span>
-                    <strong class="event-value en-text schedule-list">
-                      12:00 PM - Pritibhoj<br>
-                      02:00 PM - Sagai<br>
-                      04:00 PM - Mandha
-                    </strong>
-                  </div>
-                  <div class="detail-row">
-                    <span class="event-label en-text">📍 Venue:</span>
-                    <strong class="event-value en-text">Shagun Palace</strong>
-                    <small class="en-text">867, Bhopa Rd, Patel Nagar, New Mandi, Muzaffarnagar</small>
-                    <a href="https://maps.app.goo.gl/Qrh94ReZDBRTNd1i6" target="_blank" rel="noopener" class="venue-map-link">Google Map ⚲</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="marigold-garland small-garland">
-              <img src="assets/images/marigold.png" alt="Marigold" />
-              <img src="assets/images/marigold.png" alt="Marigold" />
-              <img src="assets/images/marigold.png" alt="Marigold" />
-            </div>
-
-            <div class="event-phase-header">
-              <h2 class="event-phase-title en-text">Wedding Ceremony</h2>
-            </div>
-
-            <div class="event-grid single-col">
-              <div class="event-group">
-                <img src="assets/images/24november.png" alt="24 November 2026 Calendar" class="calendar-preview" />
-                <div class="event-box">
-                  <div class="detail-row">
-                    <span class="event-label en-text">📅 Date:</span>
-                    <strong class="event-value en-text">Tuesday, 24 Nov 2026</strong>
-                  </div>
-                  <div class="detail-row">
-                    <span class="event-label en-text">⏰ Events:</span>
-                    <strong class="event-value en-text schedule-list">
-                      06:00 PM - Baraat<br>
-                      08:00 PM - Dinner
-                    </strong>
-                  </div>
-                  <div class="detail-row">
-                    <span class="event-label en-text">📍 Venue:</span>
-                    <strong class="event-value en-text">Abhinandan Palace</strong>
-                    <small class="en-text">State Highway 59, Roorkee Rd, Muzaffarnagar</small>
-                    <a href="https://maps.app.goo.gl/6S5ik45MY2hr9djNA" target="_blank" rel="noopener" class="venue-map-link">Google Map ⚲</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <div class="marigold-garland">
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-          </div>
-
-          <section class="thankyou-panel">
-            <div class="en-text" style="margin-top: 5px;">
-              <h3>Invited By</h3>
-              <p><strong>All Family & Well-wishers</strong></p>
-            </div>
-            <h3 class="en-text thankyou-script" style="font-family: 'Great Vibes', cursive; font-size: 3rem; margin-top: 20px;">Thank You</h3>
-            <p class="en-text">Your presence and blessings will make our celebration truly special.</p>
-          </section>
-
-          <section class="countdown-section">
-            <div class="countdown-title en-text">Countdown to the Wedding</div>
-
-            <div class="clock-shell">
-              <div class="clock-glow clock-glow-a"></div>
-              <div class="clock-glow clock-glow-b"></div>
-              <div class="digital-clock">
-                <div class="clock-box"><span id="days">00</span><small>Days</small></div>
-                <div class="clock-box"><span id="hours">00</span><small>Hours</small></div>
-                <div class="clock-box"><span id="minutes">00</span><small>Minutes</small></div>
-                <div class="clock-box"><span id="seconds">00</span><small>Seconds</small></div>
-              </div>
-            </div>
-          </section>
-
-          <section class="footer-actions two-buttons">
-            <a class="action-btn wa-btn" href="https://wa.me/919454404754" target="_blank" rel="noopener" aria-label="WhatsApp 9454404754">
-              <span class="wa-icon">✆</span>
-              <span class="wa-number">9454404754</span>
-            </a>
-            <a class="action-btn wa-btn" href="https://wa.me/918299153513" target="_blank" rel="noopener" aria-label="WhatsApp 8299153513">
-              <span class="wa-icon">✆</span>
-              <span class="wa-number">8299153513</span>
-            </a>
-          </section>
-
-        </div>
-      </section>
-
-      <audio id="bgAudio" preload="auto" loop playsinline>
-        <source src="assets/audio/music.mp3" type="audio/mpeg" />
-      </audio>
-    </main>
-  </div>
-
-  <script src="js/script.js"></script>
-</body>
-</html>
