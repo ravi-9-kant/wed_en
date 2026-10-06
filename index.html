@@ -3,26 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lagan Ceremony | Ravi Kant & Apurva</title>
+  <title>Wedding Invitation | Ravi Kant & Apurva</title>
 
-  <!-- WhatsApp / Social Media Preview Meta Tags -->
-  <meta property="og:title" content="Lagan Ceremony Invitation | Ravi & Apurva" />
-  <meta property="og:description" content="विवाह की शुभ शुरुआत हो रही है — आइए, इस प्रथम मंगल अवसर के साक्षी बनिए।" />
+  <!-- WhatsApp Preview Meta Tags (English) -->
+  <meta property="og:title" content="Wedding Invitation | Ravi & Apurva" />
+  <meta property="og:description" content="Please join us on Tuesday, 24th November 2026 to celebrate our special day at Abhinandan Palace!" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ravi-9-kant.github.io/i/" />
-  <meta property="og:image" content="https://ravi-9-kant.github.io/i/assets/images/preview.png" />
+  <meta property="og:url" content="https://ravi-9-kant.github.io/i/english.html" />
+  <meta property="og:image" content="https://ravi-9-kant.github.io/i/assets/images/preview_en.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Caramel&family=Carattere&family=Ephesis&family=Great+Vibes&family=MonteCarlo&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Carattere&family=Great+Vibes&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@400;500;600;700;800&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Protects your English styling without changing your CSS or JS files -->
+  <style>
+    body.hindi-mode { font-family: 'Montserrat', sans-serif !important; }
+    .cover-top-text span.en-text {
+      font-family: 'Libre Baskerville', serif; font-size: 1.3rem; font-weight: 700; color: var(--maroon-dark); text-shadow: 0 2px 5px rgba(255,255,255,0.9);
+    }
+    .en-text.event-phase-title {
+      font-family: 'Alex Brush', cursive; font-size: 3rem; font-weight: 400;
+    }
+  </style>
 </head>
-<body class="hindi-mode">
+<body>
   <div class="page-shell">
     <header class="topbar">
-      <button id="langToggle" class="icon-btn lang-btn" type="button" aria-label="Switch to English">EN</button>
+      <!-- Hidden language toggle so your script.js doesn't break -->
+      <button id="langToggle" class="icon-btn lang-btn" type="button" style="display: none;">EN</button>
       <button id="musicToggle" class="icon-btn music-btn" type="button" aria-label="Play music" aria-pressed="false">♫</button>
     </header>
 
@@ -31,56 +43,19 @@
 
     <main class="invite-app">
       
-      <!-- ENVELOPE STAGE -->
-      <section class="envelope-stage" id="envelopeStage">
-        <div class="floating-petal petal-1"></div>
-        <div class="floating-petal petal-2"></div>
-        <div class="floating-petal petal-3"></div>
-        <div class="floating-petal petal-4"></div>
-
-        <div class="envelope-wrap" id="envelopeWrap" aria-hidden="true">
-          <div class="envelope back"></div>
-          <div class="envelope front"></div>
-          <div class="envelope flap"></div>
+      <!-- COVER STAGE -->
+      <section class="cover-stage" id="coverStage">
+        <div class="notepad-page" id="notepadPage">
           
-          <!-- Text and Button WRITTEN ON the Envelope -->
-          <div class="envelope-text-overlay">
-            
-            <!-- Top Section: Anchored above the button -->
-            <div class="env-top-wrapper">
-              <p class="shree-env hindi-only">॥ श्री गणेशाय नमः ॥</p>
-              <p class="shree-env english-only hidden">॥ Shree Ganeshay Namah ॥</p>
-              <img src="assets/images/ganeshaenvelope.png" alt="Ganesha" class="ganesha-env-icon" />
-            </div>
-
-            <!-- Middle Section (Name - Button - Name) -->
-            <div class="env-center-row">
-              <div class="env-name-left">
-                <img src="assets/images/RaviHi.png" class="env-name-img hindi-only" alt="रवि" />
-                <img src="assets/images/RaviEn.png" class="env-name-img english-only hidden" alt="Ravi" />
-              </div>
-              
-              <button class="open-invite-btn" id="openInviteBtn" type="button">
-                <span class="english-only hidden">Open Invite</span>
-                <span class="hindi-only">निमंत्रण खोलें</span>
-              </button>
-
-              <div class="env-name-right">
-                <img src="assets/images/ApurvaHi.png" class="env-name-img hindi-only" alt="अपूर्वा" />
-                <img src="assets/images/ApurvaEn.png" class="env-name-img english-only hidden" alt="Apurva" />
-              </div>
-            </div>
-
-            <!-- Bottom Section: Anchored below the button -->
-            <div class="env-bottom-wrapper">
-              <h2 class="lagan-title hindi-only">लग्न समारोह</h2>
-              <h2 class="lagan-title english-only hidden">Lagan Ceremony</h2>
-              
-              <p class="env-quote hindi-only">दो दिलों के मिलन से पहले,<br>दो परिवारों के मिलन का शुभ अवसर…</p>
-              <p class="env-quote english-only hidden">Before the union of two hearts,<br>the auspicious union of two families...</p>
-            </div>
-
+          <div class="cover-top-text">
+            <span class="en-text">Om Shree Ganeshay Namah</span>
           </div>
+
+          <img src="assets/images/cover.png" alt="Invitation Cover" class="cover-image" />
+          
+          <button class="open-invite-btn" id="openInviteBtn" type="button">
+            <span class="en-text">Open Invite</span>
+          </button>
         </div>
       </section>
 
@@ -94,163 +69,127 @@
           <div class="ornament bottom-left"></div>
           <div class="ornament bottom-right"></div>
 
-          <!-- Section 2: Ganesha Invocation -->
+          <!-- Ganesha Invocation -->
           <section class="ganesha-section" id="ganeshaSection">
             <img src="assets/images/ganesha.png" alt="Lord Ganesha" class="ganesha-img" />
             <div class="mantra-block">
-              <div class="mantra-text hindi-only">
-                वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः।<br>
-                निर्विघ्नं कुरु मे देव शुभ कार्येषु सर्वदा॥
-              </div>
-              <div class="mantra-text english-only hidden">
+              <div class="mantra-text en-text">
                 Vakratunda Mahakaya Suryakoti Samaprabha,<br>
-                Nirvighnam Kuru Me Deva Shubha Karyeshu Sarvada.
+                Nirvighnam Kuru Me Deva Sarva Karyeshu Sarvada.
               </div>
             </div>
           </section>
 
-          <!-- Section 3: Main Lagan Invitation -->
-          <section class="intro-block">
-            <h2 class="section-title english-only hidden">Auspicious Lagan Ceremony</h2>
-            <h2 class="section-title hindi-only">शुभ लग्न समारोह</h2>
-            
-            <div class="hindi-only">
-              <p class="lead-line">
-                ईश्वर की असीम कृपा एवं<br>आप सभी के स्नेह और आशीर्वाद से<br>हमारे प्रिय <strong>रवि कांत</strong> एवं <strong>अपूर्वा</strong><br>के शुभ विवाह की मंगल बेला निकट आ रही है।
-              </p>
-              <p>
-                विवाह के इस पावन बंधन की प्रथम शुभ बेला में<br>आयोजित लग्न समारोह में<br>आपकी गरिमामयी उपस्थिति हमारे लिए<br>अत्यंत हर्ष एवं सौभाग्य का विषय होगी।
-              </p>
-            </div>
-
-            <div class="english-only hidden">
-              <p class="lead-line">
-                With the boundless grace of the Almighty<br>and your love and blessings,<br>the joyous occasion of the wedding of our beloved<br><strong>Ravi Kant</strong> and <strong>Apurva</strong> is approaching.
-              </p>
-              <p>
-                Your esteemed presence at the Lagan Ceremony,<br>the first auspicious step of this sacred bond,<br>would be a matter of immense joy and honor for us.
-              </p>
-            </div>
-          </section>
-
-          <!-- Section 4: Couple Section (Side by Side) -->
-          <section class="unified-couple-section">
-            <h2 class="section-title english-only hidden">Holy Union</h2>
-            <h2 class="section-title hindi-only">शुभ परिणय</h2>
-            
-            <div class="mandala-bg" style="background-image: url('assets/images/mandala.png');"></div>
-            
-            <div class="couple-grid">
-              <!-- Groom -->
-              <div class="person-card">
-                <img src="assets/images/groom.jpg" alt="Ravi Kant" class="couple-img" />
-                
-                <div class="hindi-only">
-                  <img src="assets/images/RaviHi.png" alt="रवि कांत" class="name-img-couple" />
-                  <p class="parents-text">सुपुत्र<br>श्री लक्ष्मण सिंह एवं<br>श्रीमती रेखा सिंह</p>
-                </div>
-                <div class="english-only hidden">
-                  <img src="assets/images/RaviEn.png" alt="Ravi Kant" class="name-img-couple" />
-                  <p class="parents-text">Son of<br>Mr. Laxman Singh &<br>Mrs. Rekha Singh</p>
-                </div>
-              </div>
-
-              <!-- Bride -->
-              <div class="person-card">
-                <img src="assets/images/bride.png" alt="Apurva" class="couple-img" />
-                
-                <div class="hindi-only">
-                  <img src="assets/images/ApurvaHi.png" alt="अपूर्वा" class="name-img-couple" />
-                  <p class="parents-text">सुपुत्री<br>श्री सुशील कुमार एवं<br>श्रीमती बोबेश धीमान</p>
-                </div>
-                <div class="english-only hidden">
-                  <img src="assets/images/ApurvaEn.png" alt="Apurva" class="name-img-couple" />
-                  <p class="parents-text">Daughter of<br>Mr. Susheel Kumar &<br>Mrs. Bobesh Dhiman</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- Marigold Garland Divider -->
-          <div class="marigold-garland">
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-            <img src="assets/images/marigold.png" alt="Marigold" />
-          </div>
-
-          <!-- Section 5: Lagan Ceremony Details -->
-          <section class="details-panel">
-            <h2 class="section-title english-only hidden">🌺 Auspicious Lagan</h2>
-            <h2 class="section-title hindi-only">🌺 शुभ लग्न</h2>
-
-            <div class="event-grid">
+          <!-- Main Center Aligned Text -->
+          <section class="intro-block center-aligned-invite">
+            <div class="en-text">
+              <p class="invite-text-line" style="margin-top: 15px;">By the boundless grace of the Almighty,</p>
+              <p class="invite-text-line" style="font-size: 1.3rem; margin: 15px 0;"><strong>Mrs. Rekha Singh & Mr. Laxman Singh</strong></p>
+              <p class="invite-text-line">cordially invite you to the auspicious occasion of the</p>
               
-              <!-- Date Event Group -->
-              <div class="event-group">
-                <!-- Using November.png exactly as named -->
-                <img src="assets/images/November.png" alt="November 2026 Calendar" class="calendar-preview" />
-                <div class="event-box">
-                  <img src="assets/images/kalash.png" alt="Kalash" class="kalash-icon" />
-                  
-                  <div class="detail-row">
-                    <span class="event-label english-only hidden">📅 Date:</span>
-                    <span class="event-label hindi-only">📅 दिनांक:</span>
-                    <strong class="event-value english-only hidden">23rd November 2026</strong>
-                    <strong class="event-value hindi-only">23 नवम्बर 2026</strong>
-                  </div>
-
-                  <div class="detail-row">
-                    <span class="event-label english-only hidden">🪔 Day:</span>
-                    <span class="event-label hindi-only">🪔 वार:</span>
-                    <strong class="event-value english-only hidden">Monday</strong>
-                    <strong class="event-value hindi-only">सोमवार</strong>
-                  </div>
-
-                  <div class="detail-row">
-                    <span class="event-label english-only hidden">⏰ Time:</span>
-                    <span class="event-label hindi-only">⏰ शुभ समय:</span>
-                    <strong class="event-value english-only hidden">09:00 AM</strong>
-                    <strong class="event-value hindi-only">प्रातः 09:00 बजे</strong>
-                  </div>
-                </div>
+              <h2 class="bandhan-title" style="font-family: 'Alex Brush', cursive; font-size: 3rem; font-weight: 400; margin: 15px 0;">Holy Matrimony</h2>
+              
+              <p class="invite-text-line">of their beloved son</p>
+              
+              <div class="inline-couple-display">
+                <img src="assets/images/RaviEn.png" class="inline-name" alt="Ravi Kant" />
+                <img src="assets/images/groom.jpg" class="inline-photo" alt="Groom" />
               </div>
-
-              <!-- Venue Event Group -->
-              <div class="event-group">
-                <div class="map-container">
-                  <iframe 
-                    src="https://maps.google.com/maps?q=Shagun%20Palace,%20Bhopa%20Rd,%20Muzaffarnagar&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-                    class="map-iframe" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Google Maps Location">
-                  </iframe>
-                </div>
-                <div class="event-box">
-                  <div class="detail-row">
-                    <span class="event-label english-only hidden">📍 Venue</span>
-                    <span class="event-label hindi-only">📍 स्थान</span>
-                    <strong class="event-value english-only hidden">
-                      <a href="https://maps.app.goo.gl/u83XUNtKePEYsWHMA" target="_blank" rel="noopener" class="venue-link">Shagun Palace</a>
-                    </strong>
-                    <strong class="event-value hindi-only">
-                      <a href="https://maps.app.goo.gl/u83XUNtKePEYsWHMA" target="_blank" rel="noopener" class="venue-link">शगुन पैलेस</a>
-                    </strong>
-                    <small class="english-only hidden">867, Bhopa Rd, Patel Nagar, New Mandi, Muzaffarnagar</small>
-                    <small class="hindi-only">867, भोपा रोड, पटेल नगर, नई मंडी, मुज़फ्फरनगर</small>
-                  </div>
-                </div>
+              
+              <p class="invite-text-line small-text">(Grandson of Late Mrs. Atar Kali & Late Mr. Tara Chand Dhiman)</p>
+              <p class="invite-text-line highlight-sang">with</p>
+              
+              <div class="inline-couple-display">
+                <img src="assets/images/ApurvaEn.png" class="inline-name" alt="Apurva" />
+                <img src="assets/images/bride.png" class="inline-photo" alt="Bride" />
               </div>
-
+              
+              <p class="invite-text-line small-text">(Daughter of Mrs. Bobesh Dhiman & Mr. Susheel Kumar<br>Resident of Muzaffarnagar)</p>
+              
+              <p class="letter-footer" style="margin-top: 35px;">
+                Please grace the newlyweds with your love and esteemed presence.<br>Your auspicious presence will elevate our honor and joy.
+              </p>
             </div>
           </section>
 
-          <!-- Marigold Garland Divider -->
+          <!-- Kalash & Shloka -->
+          <section class="shloka-section">
+            <img src="assets/images/kalash.png" alt="Kalash" class="kalash-center-img" />
+            <p class="shloka-text en-text">
+              Vighna Harana Mangala Karana, Gananayaka Ganaraja.<br>
+              Prathama Nimantrana Aapko, Safala Kijo Sab Kaaja..
+            </p>
+            <img src="assets/images/MK.png" alt="Mangalik Karyakram" class="mk-banner" />
+          </section>
+
+          <!-- Events -->
+          <section class="details-panel">
+            <div class="event-phase-header">
+              <h2 class="event-phase-title en-text">Engagement Ceremony</h2>
+            </div>
+            
+            <div class="event-grid single-col">
+              <div class="event-group">
+                <img src="assets/images/23november.png" alt="23 November 2026 Calendar" class="calendar-preview" />
+                <div class="event-box">
+                  <div class="detail-row">
+                    <span class="event-label en-text">📅 Date:</span>
+                    <strong class="event-value en-text">Monday, 23 Nov 2026</strong>
+                  </div>
+                  <div class="detail-row">
+                    <span class="event-label en-text">⏰ Events:</span>
+                    <strong class="event-value en-text schedule-list">
+                      12:00 PM - Pritibhoj<br>
+                      02:00 PM - Sagai<br>
+                      04:00 PM - Mandha
+                    </strong>
+                  </div>
+                  <div class="detail-row">
+                    <span class="event-label en-text">📍 Venue:</span>
+                    <strong class="event-value en-text">Shagun Palace</strong>
+                    <small class="en-text">867, Bhopa Rd, Patel Nagar, New Mandi, Muzaffarnagar</small>
+                    <a href="https://maps.app.goo.gl/Qrh94ReZDBRTNd1i6" target="_blank" rel="noopener" class="venue-map-link">Google Map ⚲</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="marigold-garland small-garland">
+              <img src="assets/images/marigold.png" alt="Marigold" />
+              <img src="assets/images/marigold.png" alt="Marigold" />
+              <img src="assets/images/marigold.png" alt="Marigold" />
+            </div>
+
+            <div class="event-phase-header">
+              <h2 class="event-phase-title en-text">Wedding Ceremony</h2>
+            </div>
+
+            <div class="event-grid single-col">
+              <div class="event-group">
+                <img src="assets/images/24november.png" alt="24 November 2026 Calendar" class="calendar-preview" />
+                <div class="event-box">
+                  <div class="detail-row">
+                    <span class="event-label en-text">📅 Date:</span>
+                    <strong class="event-value en-text">Tuesday, 24 Nov 2026</strong>
+                  </div>
+                  <div class="detail-row">
+                    <span class="event-label en-text">⏰ Events:</span>
+                    <strong class="event-value en-text schedule-list">
+                      06:00 PM - Baraat<br>
+                      08:00 PM - Dinner
+                    </strong>
+                  </div>
+                  <div class="detail-row">
+                    <span class="event-label en-text">📍 Venue:</span>
+                    <strong class="event-value en-text">Abhinandan Palace</strong>
+                    <small class="en-text">State Highway 59, Roorkee Rd, Muzaffarnagar</small>
+                    <a href="https://maps.app.goo.gl/6S5ik45MY2hr9djNA" target="_blank" rel="noopener" class="venue-map-link">Google Map ⚲</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <div class="marigold-garland">
             <img src="assets/images/marigold.png" alt="Marigold" />
             <img src="assets/images/marigold.png" alt="Marigold" />
@@ -262,19 +201,16 @@
           </div>
 
           <section class="thankyou-panel">
-            <div class="hindi-only" style="margin-top: 5px;">
-              <h3>निमंत्रक</h3>
-              <p><strong>समस्त परिवार एवं स्नेहीजन</strong></p>
-            </div>
-            <div class="english-only hidden" style="margin-top: 5px;">
+            <div class="en-text" style="margin-top: 5px;">
               <h3>Invited By</h3>
               <p><strong>All Family & Well-wishers</strong></p>
             </div>
+            <h3 class="en-text thankyou-script" style="font-family: 'Great Vibes', cursive; font-size: 3rem; margin-top: 20px;">Thank You</h3>
+            <p class="en-text">Your presence and blessings will make our celebration truly special.</p>
           </section>
 
           <section class="countdown-section">
-            <div class="countdown-title english-only hidden">Countdown to the Ceremony</div>
-            <div class="countdown-title hindi-only">समारोह तक शेष समय</div>
+            <div class="countdown-title en-text">Countdown to the Wedding</div>
 
             <div class="clock-shell">
               <div class="clock-glow clock-glow-a"></div>
@@ -288,22 +224,17 @@
             </div>
           </section>
 
-          <section class="footer-actions">
-            <a class="action-btn venue-btn" href="https://maps.app.goo.gl/u83XUNtKePEYsWHMA" target="_blank" rel="noopener">
-              <span class="btn-label english-only hidden">Venue</span>
-              <span class="btn-label hindi-only">समारोह स्थल</span>
-            </a>
-
+          <section class="footer-actions two-buttons">
             <a class="action-btn wa-btn" href="https://wa.me/919454404754" target="_blank" rel="noopener" aria-label="WhatsApp 9454404754">
               <span class="wa-icon">✆</span>
               <span class="wa-number">9454404754</span>
             </a>
-
             <a class="action-btn wa-btn" href="https://wa.me/918299153513" target="_blank" rel="noopener" aria-label="WhatsApp 8299153513">
               <span class="wa-icon">✆</span>
               <span class="wa-number">8299153513</span>
             </a>
           </section>
+
         </div>
       </section>
 
