@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Carattere&family=Great+Vibes&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@400;500;600;700;800&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/images/cover.png">
   <link rel="stylesheet" href="css/style.css" />
 
   <!-- Protects your English styling from being overwritten by script_2.js -->
@@ -32,6 +33,8 @@
 </head>
 <body>
   <div class="page-shell">
+    <canvas id="festiveCanvas" class="festive-canvas" aria-hidden="true"></canvas>
+
     <header class="topbar">
       <!-- CRITICAL: Do NOT delete this langToggle button. It is hidden, but script.js needs it to prevent crashing! -->
       <button id="langToggle" class="icon-btn lang-btn" type="button" style="display: none;">EN</button>
@@ -43,27 +46,50 @@
 
     <main class="invite-app">
       
-      <!-- COVER STAGE -->
+      <!-- COVER STAGE (Notepad Flip) -->
       <section class="cover-stage" id="coverStage">
-        <div class="notepad-page" id="notepadPage">
-          
+        <!-- Floating 3D Golden Mandala Aura Behind Cover -->
+        <div class="cover-mandala-halo" aria-hidden="true">
+          <img src="assets/images/mandala.png" alt="" />
+        </div>
+
+        <div class="notepad-page" id="notepadPage" onclick="openInvite()">
+          <div class="card-shimmer" aria-hidden="true"></div>
+          <div class="corner-filigree top-left"></div>
+          <div class="corner-filigree top-right"></div>
+          <div class="corner-filigree bottom-left"></div>
+          <div class="corner-filigree bottom-right"></div>
+
           <div class="cover-top-text">
             <span class="en-text">Om Shree Ganeshay Namah</span>
           </div>
 
           <img src="assets/images/cover.png" alt="Invitation Cover" class="cover-image" />
           
-          <button class="open-invite-btn" id="openInviteBtn" type="button">
+          <button class="open-invite-btn royal-seal-btn" id="openInviteBtn" type="button" onclick="openInvite()">
+            <span class="seal-icon">✨</span>
             <span class="en-text">Open Invitation</span>
           </button>
         </div>
       </section>
 
       <div class="celebration-layer" id="celebrationLayer" aria-hidden="true"></div>
+      <div class="ashirwad-container" id="ashirwadContainer" aria-hidden="true"></div>
 
       <!-- MAIN INVITATION CONTENT -->
       <section class="content-section hidden" id="contentSection">
         <div class="royal-frame">
+          <!-- Festive Hanging Toran -->
+          <div class="royal-toran" aria-hidden="true">
+            <div class="toran-string">
+              <span class="toran-bell left-bell">🔔</span>
+              <img src="assets/images/marigold.png" alt="" class="toran-flower" />
+              <img src="assets/images/marigold.png" alt="" class="toran-flower center-flower" />
+              <img src="assets/images/marigold.png" alt="" class="toran-flower" />
+              <span class="toran-bell right-bell">🔔</span>
+            </div>
+          </div>
+
           <div class="ornament top-left"></div>
           <div class="ornament top-right"></div>
           <div class="ornament bottom-left"></div>
@@ -71,7 +97,10 @@
 
           <!-- Ganesha Invocation -->
           <section class="ganesha-section" id="ganeshaSection">
-            <img src="assets/images/ganesha.png" alt="Lord Ganesha" class="ganesha-img" />
+            <div class="ganesha-aura-wrap">
+              <img src="assets/images/mandala.png" alt="" class="ganesha-mandala-halo" aria-hidden="true" />
+              <img src="assets/images/ganesha.png" alt="Lord Ganesha" class="ganesha-img" />
+            </div>
             <div class="mantra-block">
               <div class="mantra-text en-text">
                 Vakratunda Mahakaya Suryakoti Samaprabha,<br>
@@ -87,7 +116,18 @@
               <p class="invite-text-line" style="font-size: 1.3rem; margin: 15px 0;"><strong>Mrs. Rekha Singh & Mr. Laxman Singh</strong></p>
               <p class="invite-text-line">cordially invite you to the auspicious occasion of the</p>
               
+              <!-- Golden Calligraphy Stroke Reveal (Swarna Rekha) -->
+              <div class="swarna-rekha-wrap">
+                <span class="swarna-rekha stroke-left"></span>
+                <span class="swarna-sparkle">❖</span>
+                <span class="swarna-rekha stroke-right"></span>
+              </div>
               <h2 class="bandhan-title" style="font-family: 'Alex Brush', cursive; font-size: 3rem; font-weight: 400; margin: 15px 0;">Holy Matrimony</h2>
+              <div class="swarna-rekha-wrap swarna-bottom">
+                <span class="swarna-rekha stroke-left"></span>
+                <span class="swarna-sparkle">❖</span>
+                <span class="swarna-rekha stroke-right"></span>
+              </div>
               
               <p class="invite-text-line">of their beloved son</p>
               
@@ -97,7 +137,31 @@
               </div>
               
               <p class="invite-text-line small-text">(Grandson of Late Mrs. Atar Kali & Late Mr. Tara Chand Dhiman)</p>
-              <p class="invite-text-line highlight-sang">with</p>
+
+              <!-- Auspicious Gathbandhan Sacred Knot -->
+              <div class="gathbandhan-wrap" aria-label="Holy Union">
+                <svg class="gathbandhan-knot-svg" viewBox="0 0 240 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="goldKnotGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#ffd700" />
+                      <stop offset="35%" stop-color="#fff099" />
+                      <stop offset="70%" stop-color="#d4af37" />
+                      <stop offset="100%" stop-color="#996515" />
+                    </linearGradient>
+                    <filter id="knotGlowEn" x="-20%" y="-20%" width="140%" height="140%">
+                      <feGaussianBlur stdDeviation="2.5" result="glow"/>
+                      <feComposite in="SourceGraphic" in2="glow" operator="over"/>
+                    </filter>
+                  </defs>
+                  <!-- Intertwined golden threads -->
+                  <path d="M 15,30 Q 60,10 100,28 T 140,32 Q 180,50 225,30" stroke="url(#goldKnotGradEn)" stroke-width="4.5" stroke-linecap="round" fill="none" filter="url(#knotGlowEn)" class="knot-thread-1"/>
+                  <path d="M 15,30 Q 60,50 100,32 T 140,28 Q 180,10 225,30" stroke="url(#goldKnotGradEn)" stroke-width="3" stroke-linecap="round" stroke-dasharray="6,4" fill="none" class="knot-thread-2"/>
+                  <!-- Center Auspicious Knot Loops -->
+                  <circle cx="120" cy="30" r="14" stroke="url(#goldKnotGradEn)" stroke-width="3.5" fill="rgba(128, 0, 32, 0.45)" class="knot-center-loop"/>
+                  <circle cx="120" cy="30" r="5" fill="#ffe066" class="knot-center-gem"/>
+                </svg>
+                <span class="gathbandhan-text english-knot-text">with</span>
+              </div>
               
               <div class="inline-couple-display">
                 <img src="assets/images/ApurvaEn.png" class="inline-name" alt="Apurva" />
@@ -114,12 +178,15 @@
 
           <!-- Kalash & Shloka -->
           <section class="shloka-section">
-            <img src="assets/images/kalash.png" alt="Kalash" class="kalash-center-img" />
+            <div class="kalash-aura-wrap">
+              <div class="kalash-diya-glow" aria-hidden="true"></div>
+              <img src="assets/images/kalash.png" alt="Kalash" class="kalash-center-img" />
+            </div>
             <p class="shloka-text en-text">
               Vighna Harana Mangala Karana, Gananayaka Ganaraja.<br>
               Prathama Nimantrana Aapko, Safala Kijo Sab Kaaja..
             </p>
-            <img src="assets/images/MK.png" alt="Mangalik Karyakram" class="mk-banner" />
+            <img src="assets/images/mk.png" alt="Mangalik Karyakram" class="mk-banner" />
           </section>
 
           <!-- Events -->
@@ -129,26 +196,28 @@
             </div>
             
             <div class="event-grid single-col">
-              <div class="event-group">
-                <img src="assets/images/23november.png" alt="23 November 2026 Calendar" class="calendar-preview" />
-                <div class="event-box">
-                  <div class="detail-row">
-                    <span class="event-label en-text">📅 Date:</span>
-                    <strong class="event-value en-text">Monday, 23 Nov 2026</strong>
-                  </div>
-                  <div class="detail-row">
-                    <span class="event-label en-text">⏰ Events:</span>
-                    <strong class="event-value en-text schedule-list">
-                      12:00 PM - Pritibhoj<br>
-                      02:00 PM - Sagai<br>
-                      04:00 PM - Mandha
-                    </strong>
-                  </div>
-                  <div class="detail-row">
-                    <span class="event-label en-text">📍 Venue:</span>
-                    <strong class="event-value en-text">Shagun Palace</strong>
-                    <small class="en-text">867, Bhopa Rd, Patel Nagar, New Mandi, Muzaffarnagar</small>
-                    <a href="https://maps.app.goo.gl/Qrh94ReZDBRTNd1i6" target="_blank" rel="noopener" class="venue-map-link">Google Map ⚲</a>
+              <div class="card-3d">
+                <div class="card-3d-inner event-group">
+                  <img src="assets/images/23november.png" alt="23 November 2026 Calendar" class="calendar-preview" />
+                  <div class="event-box">
+                    <div class="detail-row">
+                      <span class="event-label en-text">📅 Date:</span>
+                      <strong class="event-value en-text">Monday, 23 Nov 2026</strong>
+                    </div>
+                    <div class="detail-row">
+                      <span class="event-label en-text">⏰ Events:</span>
+                      <strong class="event-value en-text schedule-list">
+                        12:00 PM - Pritibhoj<br>
+                        02:00 PM - Sagai<br>
+                        04:00 PM - Mandha
+                      </strong>
+                    </div>
+                    <div class="detail-row">
+                      <span class="event-label en-text">📍 Venue:</span>
+                      <strong class="event-value en-text">Shagun Palace</strong>
+                      <small class="en-text">867, Bhopa Rd, Patel Nagar, New Mandi, Muzaffarnagar</small>
+                      <a href="https://www.google.com/maps/place/Shagun+Palace/@29.4729742,77.7222751,17z/data=!3m1!4b1!4m6!3m5!1s0x390c1b407975af3f:0xb76ed2619c27b611!8m2!3d29.4729742!4d77.72485!16s%2Fg%2F11c7sq0_7_?entry=ttu" target="_blank" rel="noopener" class="venue-map-link">Google Map ⚲</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -165,25 +234,37 @@
             </div>
 
             <div class="event-grid single-col">
-              <div class="event-group">
-                <img src="assets/images/24november.png" alt="24 November 2026 Calendar" class="calendar-preview" />
-                <div class="event-box">
-                  <div class="detail-row">
-                    <span class="event-label en-text">📅 Date:</span>
-                    <strong class="event-value en-text">Tuesday, 24 Nov 2026</strong>
-                  </div>
-                  <div class="detail-row">
-                    <span class="event-label en-text">⏰ Events:</span>
-                    <strong class="event-value en-text schedule-list">
-                      06:00 PM - Baraat<br>
-                      08:00 PM - Dinner
-                    </strong>
-                  </div>
-                  <div class="detail-row">
-                    <span class="event-label en-text">📍 Venue:</span>
-                    <strong class="event-value en-text">Abhinandan Palace</strong>
-                    <small class="en-text">State Highway 59, Roorkee Rd, Muzaffarnagar</small>
-                    <a href="https://maps.app.goo.gl/6S5ik45MY2hr9djNA" target="_blank" rel="noopener" class="venue-map-link">Google Map ⚲</a>
+              <div class="card-3d wedding-card-agni">
+                <!-- Pavitra Agni Sacred Flame & Rising Embers Backdrop -->
+                <div class="pavitra-agni-aura" aria-hidden="true">
+                  <div class="sacred-flame-core"></div>
+                  <div class="agni-ember e1"></div>
+                  <div class="agni-ember e2"></div>
+                  <div class="agni-ember e3"></div>
+                  <div class="agni-ember e4"></div>
+                  <div class="agni-ember e5"></div>
+                </div>
+
+                <div class="card-3d-inner event-group">
+                  <img src="assets/images/24november.png" alt="24 November 2026 Calendar" class="calendar-preview" />
+                  <div class="event-box">
+                    <div class="detail-row">
+                      <span class="event-label en-text">📅 Date:</span>
+                      <strong class="event-value en-text">Tuesday, 24 Nov 2026</strong>
+                    </div>
+                    <div class="detail-row">
+                      <span class="event-label en-text">⏰ Events:</span>
+                      <strong class="event-value en-text schedule-list">
+                        06:00 PM - Baraat<br>
+                        08:00 PM - Dinner
+                      </strong>
+                    </div>
+                    <div class="detail-row">
+                      <span class="event-label en-text">📍 Venue:</span>
+                      <strong class="event-value en-text">Abhinandan Palace</strong>
+                      <small class="en-text">State Highway 59, Roorkee Rd, Muzaffarnagar</small>
+                      <a href="https://www.google.com/maps/place/Abhinandan+Palace/@29.501159,77.6980472,17z/data=!4m6!3m5!1s0x390c1c870b8a3a97:0x41d3e4a11fcc7c8b!8m2!3d29.501159!4d77.7006221!16s%2Fg%2F11cn92zf6g?entry=ttu" target="_blank" rel="noopener" class="venue-map-link">Google Map ⚲</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -216,19 +297,21 @@
               <div class="clock-glow clock-glow-a"></div>
               <div class="clock-glow clock-glow-b"></div>
               <div class="digital-clock">
-                <div class="clock-box"><span id="days">00</span><small>Days</small></div>
-                <div class="clock-box"><span id="hours">00</span><small>Hours</small></div>
-                <div class="clock-box"><span id="minutes">00</span><small>Minutes</small></div>
-                <div class="clock-box"><span id="seconds">00</span><small>Seconds</small></div>
+                <div class="clock-box" id="box-days"><span id="days">00</span><small>Days</small></div>
+                <div class="clock-box" id="box-hours"><span id="hours">00</span><small>Hours</small></div>
+                <div class="clock-box" id="box-minutes"><span id="minutes">00</span><small>Minutes</small></div>
+                <div class="clock-box" id="box-seconds"><span id="seconds">00</span><small>Seconds</small></div>
               </div>
             </div>
           </section>
 
+          <!-- Footer Actions (Only WhatsApp) -->
           <section class="footer-actions two-buttons">
             <a class="action-btn wa-btn" href="https://wa.me/919454404754" target="_blank" rel="noopener" aria-label="WhatsApp 9454404754">
               <span class="wa-icon">✆</span>
               <span class="wa-number">9454404754</span>
             </a>
+
             <a class="action-btn wa-btn" href="https://wa.me/918299153513" target="_blank" rel="noopener" aria-label="WhatsApp 8299153513">
               <span class="wa-icon">✆</span>
               <span class="wa-number">8299153513</span>
@@ -238,7 +321,7 @@
         </div>
       </section>
 
-      <audio id="bgAudio" preload="auto" loop playsinline>
+      <audio id="bgAudio" preload="none" loop playsinline>
         <source src="assets/audio/music.mp3" type="audio/mpeg" />
       </audio>
     </main>
